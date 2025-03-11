@@ -13,8 +13,8 @@ nlp = spacy.load("en_core_web_sm")
 DB_NAME = "crypto_predictions.db"
 
 # Replace with the path to your local JSON files
-json_file_path = 'links.json'  # Links file
-user_agents_file_path = 'user_agents.json'  # User Agents file
+json_file_path = 'links.json'
+user_agents_file_path = 'user_agents.json'
 
 
 # Function to load user agents from a JSON file
@@ -49,15 +49,12 @@ def scrape_data(url, user_agents):
             response = requests.get(url, headers=headers)
 
             if response.status_code == 200:
-                # Parse the page using BeautifulSoup
                 soup = BeautifulSoup(response.text, 'html.parser')
                 print(f"Scraping data from {url} with User-Agent: {user_agent}")
 
-                # Example filters: Get all divs with a specific class or p tags
-                divs = soup.find_all('div', class_='your-div-class')  # Modify with your class
-                p_tags = soup.find_all('p')  # All <p> tags
+                divs = soup.find_all('div' )  # class_='your-div-class'
+                p_tags = soup.find_all('p')
 
-                # Extract text from divs and p tags
                 paragraphs = []
                 for div in divs:
                     paragraphs.append(div.get_text(strip=True))
@@ -116,7 +113,6 @@ def delete_old_predictions():
     conn = sqlite3.connect(DB_NAME)
     cursor = conn.cursor()
 
-    # Use timezone-aware datetime to avoid deprecation warning
     threshold_date = datetime.now(timezone.utc) - timedelta(days=30)
     cursor.execute("DELETE FROM predictions WHERE timestamp < ?", (threshold_date,))
 
@@ -147,28 +143,25 @@ def delete_irrelevant_predictions():
 
 # Main function to run the scraper, extract predictions, and store them in the database
 def main():
-    create_db()  # Ensure the database is created
+    create_db()
 
     try:
         with open(json_file_path, 'r') as file:
-            data = json.load(file)  # Load links from the JSON file
+            data = json.load(file)
 
-        user_agents = load_user_agents(user_agents_file_path)  # Load user agents
+        user_agents = load_user_agents(user_agents_file_path)
 
-        # Iterate through the links with numeric keys (1, 2, 3, 4, etc.)
         for key, link in data.items():
             print(f"Scraping link: {link}")
 
-            paragraphs = scrape_data(link, user_agents)  # Scrape the page
+            paragraphs = scrape_data(link, user_agents)
 
             if paragraphs:
-                # Filter relevant predictions
                 predicted_paragraphs = extract_future_predictions(paragraphs)
 
                 if predicted_paragraphs:
-                    save_predictions_to_db(predicted_paragraphs)  # Save to database
+                    save_predictions_to_db(predicted_paragraphs)
 
-            # Optionally, clean the database
             delete_old_predictions()
             delete_irrelevant_predictions()
 
