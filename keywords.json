@@ -1,0 +1,6 @@
+{
+    "modal_verbs": ["will", "shall", "may", "could"],
+    "future_verbs": ["reach", "predict", "rise", "increase", "hit"],
+    "time_expressions": ["by", "until", "in"],
+    "keywords": ["prediction", "forecast", "expected", "will reach", "by 2025", "by 2024", "price target"]
+}
