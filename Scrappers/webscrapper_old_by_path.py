@@ -10,7 +10,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 
 # modules import
-from DatabaseWorker import DBWorker
+from DatabaseWorker import DBWorker_old
 from Json import JsonLoader
 
 from bs4 import BeautifulSoup
