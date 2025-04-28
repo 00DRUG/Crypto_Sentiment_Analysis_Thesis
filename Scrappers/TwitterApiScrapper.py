@@ -10,7 +10,7 @@ sqlite3.register_adapter(datetime, lambda dt: dt.isoformat())  # Convert datetim
 sqlite3.register_converter("DATETIME", lambda s: datetime.fromisoformat(s.decode("utf-8")))
 
 # Database setup
-db_path = "tweets.db"
+db_path = "../tweets.db"
 conn = sqlite3.connect(db_path)
 cursor = conn.cursor()
 
@@ -68,7 +68,7 @@ def insert_tweet(tweet):
     conn.commit()
 
 
-with open("twitter_keys.json") as infile:
+with open("../Json/twitter_keys.json") as infile:
     json_obj = json.load(infile)
     token = json_obj["bearer_token"]
     client = tweepy.Client(bearer_token=token)
@@ -78,6 +78,7 @@ keyword = "🚨Prediction🚨"
 
 
 def fetch_tweets(username, keyword, max_results=10):
+
     try:
         query = f"from:{username} {keyword}"
         response = client.search_recent_tweets(
