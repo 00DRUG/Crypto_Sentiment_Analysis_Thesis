@@ -1,6 +1,7 @@
 import requests
 import json
 from DatabaseWorker.db_manager import DatabaseManager
+from Scrappers.fetcher import fetch_full_page
 
 INDEXES_BY_YEAR = {
     2014: "CC-MAIN-2014-49",
@@ -40,16 +41,31 @@ class CommonCrawlScraper:
         for year in range(2014, 2025):
             self.db_manager.create_table(year)
             results = self.search_commoncrawl(year, keyword)
+
+            saved_count = 0
             for result in results:
-                url = result.get('url', '')
-                title = result.get('title', '')
-                content = result.get('text', '')
+                warc_filename = result.get('filename')
+                offset = int(result.get('offset', 0))
+                length = int(result.get('length', 0))
+
+                if not warc_filename or offset <= 0 or length <= 0:
+                    continue
+
+                full_page = fetch_full_page(warc_filename, offset, length)
+                if full_page is None:
+                    continue
+
+                url = full_page.get('url', '')
+                html = full_page.get('html', '')
+                text = full_page.get('text', '')
                 publish_date = result.get('timestamp', '')
                 language = result.get('languages', '')
 
                 # Filter: only English pages
                 if language and 'eng' in language:
-                    self.db_manager.save_result(year, url, title, content, publish_date, language)
+                    self.db_manager.save_result(year, url, '', text, html, publish_date, language)
+                    saved_count += 1
 
-            print(f"Saved {len(results)} results for {year}")
+            print(f"Saved {saved_count} full results for {year}")
+
 

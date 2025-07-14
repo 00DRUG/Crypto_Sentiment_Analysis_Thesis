@@ -5,7 +5,7 @@ from warcio.archiveiterator import ArchiveIterator
 from bs4 import BeautifulSoup
 
 
-def fetch_full_page(warc_filename, offset, length):
+def fetch_full_page(warc_filename,  offset, length):
     base_url = "https://data.commoncrawl.org/"
     full_url = base_url + warc_filename
 
