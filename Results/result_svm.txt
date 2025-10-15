@@ -1,0 +1,19 @@
+--- TRAINING SVM (Support Vector Machine) ---
+Fitting model (this may take a minute)...
+Model: SVM (RBF)
+Accuracy: 0.5358 (53.58%)
+
+Confusion Matrix:
+[[1314  472]
+ [1215  633]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.52      0.74      0.61      1786
+           1       0.57      0.34      0.43      1848
+
+    accuracy                           0.54      3634
+   macro avg       0.55      0.54      0.52      3634
+weighted avg       0.55      0.54      0.52      3634
+

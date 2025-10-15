@@ -27,10 +27,13 @@ print("--- TRAINING KNN (K=5) ---")
 
 # 1. Load Data
 df = pd.read_csv(INPUT_FILE, index_col=0)
+# === FIX INFINITY ERRORS ===
+df.replace([np.inf, -np.inf], np.nan, inplace=True)
+df.dropna(inplace=True)
 X = df.drop('Target', axis=1)
 y = df['Target']
 
-# 2. Scale (CRITICAL for KNN)
+# 2. Scale
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
@@ -39,7 +42,7 @@ split = int(len(X_scaled) * 0.8)
 X_train, X_test = X_scaled[:split], X_scaled[split:]
 y_train, y_test = y[:split], y[split:]
 
-# 4. Train
+# 4. Train n=5 as staring point
 model = KNeighborsClassifier(n_neighbors=5)
 model.fit(X_train, y_train)
 

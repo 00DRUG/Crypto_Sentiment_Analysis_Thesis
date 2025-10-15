@@ -27,10 +27,13 @@ print("--- TRAINING SVM (Support Vector Machine) ---")
 
 # 1. Load Data
 df = pd.read_csv(INPUT_FILE, index_col=0)
+# === FIX INFINITY ERRORS ===
+df.replace([np.inf, -np.inf], np.nan, inplace=True)
+df.dropna(inplace=True)
 X = df.drop('Target', axis=1)
 y = df['Target']
 
-# 2. Scale (CRITICAL for SVM)
+# 2. Scale
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
