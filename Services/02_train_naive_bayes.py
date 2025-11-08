@@ -7,8 +7,8 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
 # CONFIG
-INPUT_FILE = "../Databases/DIPLOMA_BASELINE_DATA.csv"
-RESULT_FILE = "../Results/result_naive_bayes.txt"
+INPUT_FILE = "../Databases/DIPLOMA_FUSION_DATA_VADER.csv"
+RESULT_FILE = "../Results/result_naive_bayes_with_sentiment_vader.txt"
 
 class Logger(object):
     def __init__(self):

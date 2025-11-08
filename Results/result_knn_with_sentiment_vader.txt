@@ -1,0 +1,18 @@
+--- TRAINING KNN (K=5) ---
+Model: KNN (k=5)
+Accuracy: 0.5044 (50.44%)
+
+Confusion Matrix:
+[[1026  760]
+ [1041  807]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.50      0.57      0.53      1786
+           1       0.51      0.44      0.47      1848
+
+    accuracy                           0.50      3634
+   macro avg       0.51      0.51      0.50      3634
+weighted avg       0.51      0.50      0.50      3634
+
