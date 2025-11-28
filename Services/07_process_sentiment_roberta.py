@@ -1,46 +1,62 @@
 import pandas as pd
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
-from scipy.special import softmax
-import numpy as np
 import torch
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from torch.utils.data import DataLoader, Dataset
+from tqdm import tqdm
+from scipy.special import softmax
 
-# CONFIG
-INPUT_FILE = "../DataBases/Bitcoin_tweets.csv"
+INPUT_FILES = ["../DataBases/Bitcoin_tweets.csv", "../DataBases/Bitcoin_tweets_dataset_2.csv"]
 OUTPUT_FILE = "../DataBases/ROBERTA_SCORES.csv"
-MODEL = "cardiffnlp/twitter-roberta-base-sentiment"
+MODEL_NAME = "cardiffnlp/twitter-roberta-base-sentiment"
+BATCH_SIZE = 64
 
-print("Loading model...")
-tokenizer = AutoTokenizer.from_pretrained(MODEL)
-model = AutoModelForSequenceClassification.from_pretrained(MODEL)
 
-df = pd.read_csv(INPUT_FILE, encoding='utf-8', on_bad_lines='skip')
-df = df.dropna(subset=['text'])
+class TweetDataset(Dataset):
+    def __init__(self, texts):
+        self.texts = texts
 
-results = []
+    def __len__(self):
+        return len(self.texts)
 
-print(f"Processing {len(df)} rows...")
-for index, row in df.iterrows():
-    text = str(row['text'])
-    try:
-        encoded = tokenizer(text, return_tensors='pt')
-        output = model(**encoded)
-        scores = output[0][0].detach().numpy()
-        scores = softmax(scores)
+    def __getitem__(self, idx):
+        return str(self.texts[idx])
 
-        # Labels: 0 -> Negative, 1 -> Neutral, 2 -> Positive
-        compound = scores[2] - scores[0]
 
-        results.append({
-            "date": row['date'],
-            "roberta_score": compound
-        })
+def main():
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print(f"Using {device}")
 
-        if index % 100 == 0:
-            print(index)
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+    model = AutoModelForSequenceClassification.from_pretrained(MODEL_NAME).to(device)
 
-    except Exception as e:
-        print(f"Error: {e}")
+    all_results = []
 
-# Save
-pd.DataFrame(results).to_csv(OUTPUT_FILE, index=False)
-print("Done")
+    for fpath in INPUT_FILES:
+        df = pd.read_csv(fpath, on_bad_lines='skip')
+        df = df.dropna(subset=['text'])
+
+        dataset = TweetDataset(df['text'].tolist())
+        loader = DataLoader(dataset, batch_size=BATCH_SIZE, shuffle=False)
+
+        dates = df['date'].tolist()
+
+        with torch.no_grad():
+            for i, batch in enumerate(tqdm(loader)):
+                inputs = tokenizer(batch, return_tensors="pt", padding=True, truncation=True, max_length=64).to(device)
+                outputs = model(**inputs)
+                scores = outputs.logits.cpu().numpy()
+                scores = softmax(scores, axis=1)
+
+                for j, s in enumerate(scores):
+                    idx = i * BATCH_SIZE + j
+                    if idx < len(dates):
+                        all_results.append({
+                            'Date': dates[idx],
+                            'Score': s[2] - s[0]
+                        })
+
+    pd.DataFrame(all_results).to_csv(OUTPUT_FILE, index=False)
+
+
+if __name__ == '__main__':
+    main()
