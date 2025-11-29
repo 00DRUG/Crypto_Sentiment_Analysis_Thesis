@@ -7,8 +7,8 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
 # CONFIG
-INPUT_FILE = "../Databases/DIPLOMA_FUSION_DATA_VADER.csv"
-RESULT_FILE = "../Results/result_logistic_regression_with_sentiment_vader.txt"
+INPUT_FILE = "../Databases/DIPLOMA_FUSION_DATA_ROBERTA.csv"
+RESULT_FILE = "../Results/result_logistic_regression_with_sentiment_roberta.txt"
 
 class Logger(object):
     def __init__(self):

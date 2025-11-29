@@ -1,0 +1,18 @@
+--- TRAINING LOGISTIC REGRESSION ---
+Model: Logistic Regression
+Accuracy: 0.5261 (52.61%)
+
+Confusion Matrix:
+[[1059  727]
+ [ 995  853]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.52      0.59      0.55      1786
+           1       0.54      0.46      0.50      1848
+
+    accuracy                           0.53      3634
+   macro avg       0.53      0.53      0.52      3634
+weighted avg       0.53      0.53      0.52      3634
+
