@@ -1,0 +1,59 @@
+--- TRAINING MULTI-MODAL FUSION MODEL ---
+Processing Unit: cuda
+GPU Model: NVIDIA GeForce RTX 4060
+Data Loaded: 18169 samples
+Financial Features: 7 ['Close', 'Volume', 'Returns', 'Vol_Change', 'SMA_24', 'Dist_SMA', 'Volatility']
+Social Features: 2 ['Sentiment', 'Tweet_Volume']
+
+Starting Training (300 Epochs)...
+Epoch [10/300] Loss: 313.8820
+Epoch [20/300] Loss: 313.1391
+Epoch [30/300] Loss: 312.1763
+Epoch [40/300] Loss: 311.2890
+Epoch [50/300] Loss: 310.5370
+Epoch [60/300] Loss: 309.5213
+Epoch [70/300] Loss: 309.2206
+Epoch [80/300] Loss: 308.1827
+Epoch [90/300] Loss: 308.1844
+Epoch [100/300] Loss: 306.5630
+Epoch [110/300] Loss: 306.3720
+Epoch [120/300] Loss: 306.0763
+Epoch [130/300] Loss: 306.1071
+Epoch [140/300] Loss: 305.4093
+Epoch [150/300] Loss: 304.3731
+Epoch [160/300] Loss: 303.6150
+Epoch [170/300] Loss: 303.2640
+Epoch [180/300] Loss: 303.6226
+Epoch [190/300] Loss: 303.4636
+Epoch [200/300] Loss: 302.8590
+Epoch [210/300] Loss: 302.0885
+Epoch [220/300] Loss: 302.4485
+Epoch [230/300] Loss: 302.2816
+Epoch [240/300] Loss: 301.2128
+Epoch [250/300] Loss: 299.3066
+Epoch [260/300] Loss: 300.8242
+Epoch [270/300] Loss: 300.3569
+Epoch [280/300] Loss: 299.9369
+Epoch [290/300] Loss: 298.8450
+Epoch [300/300] Loss: 298.4543
+
+Evaluating...
+==================================================
+FINAL RESULT - MULTI-MODAL FUSION
+Accuracy: 0.5173 (51.73%)
+==================================================
+
+Confusion Matrix:
+[[1521  265]
+ [1489  359]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.51      0.85      0.63      1786
+           1       0.58      0.19      0.29      1848
+
+    accuracy                           0.52      3634
+   macro avg       0.54      0.52      0.46      3634
+weighted avg       0.54      0.52      0.46      3634
+
