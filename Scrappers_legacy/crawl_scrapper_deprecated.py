@@ -1,6 +1,5 @@
 import requests
 import json
-from DatabaseWorker.db_manager import DatabaseManager
 from Scrappers_legacy.Fetcher_deprecated import fetch_full_page
 
 INDEXES_BY_YEAR = {
