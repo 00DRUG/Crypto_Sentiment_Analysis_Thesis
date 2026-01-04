@@ -1,15 +1,56 @@
---- TRAINING DEEP LEARNING BASELINE (PRICE ONLY) ---
 Device: cuda
+Class Weights: [1.00089519 0.99910641]
+Epoch [10/350] Loss: 0.7079 | Train Acc: 50.70% | Test Acc: 52.06% | LR: 0.001
+Epoch [20/350] Loss: 0.6927 | Train Acc: 52.82% | Test Acc: 53.58% | LR: 0.001
+Epoch [30/350] Loss: 0.6918 | Train Acc: 52.67% | Test Acc: 50.74% | LR: 0.001
+Epoch [40/350] Loss: 0.6903 | Train Acc: 53.11% | Test Acc: 53.74% | LR: 0.001
+Epoch [50/350] Loss: 0.6903 | Train Acc: 53.62% | Test Acc: 51.95% | LR: 0.001
+Epoch [60/350] Loss: 0.6903 | Train Acc: 54.18% | Test Acc: 54.16% | LR: 0.0005
+Epoch [70/350] Loss: 0.6893 | Train Acc: 54.63% | Test Acc: 53.94% | LR: 0.0005
+Epoch [80/350] Loss: 0.6891 | Train Acc: 54.67% | Test Acc: 54.16% | LR: 0.0005
+Epoch [90/350] Loss: 0.6887 | Train Acc: 54.74% | Test Acc: 53.63% | LR: 0.00025
+Epoch [100/350] Loss: 0.6890 | Train Acc: 54.70% | Test Acc: 53.11% | LR: 0.00025
+Epoch [110/350] Loss: 0.6883 | Train Acc: 54.45% | Test Acc: 54.24% | LR: 0.000125
+Epoch [120/350] Loss: 0.6886 | Train Acc: 54.39% | Test Acc: 54.27% | LR: 0.000125
+Epoch [130/350] Loss: 0.6883 | Train Acc: 54.76% | Test Acc: 53.94% | LR: 0.000125
+Epoch [140/350] Loss: 0.6887 | Train Acc: 54.28% | Test Acc: 53.44% | LR: 6.25e-05
+Epoch [150/350] Loss: 0.6881 | Train Acc: 54.69% | Test Acc: 53.55% | LR: 6.25e-05
+Epoch [160/350] Loss: 0.6882 | Train Acc: 54.37% | Test Acc: 53.08% | LR: 6.25e-05
+Epoch [170/350] Loss: 0.6883 | Train Acc: 54.52% | Test Acc: 51.82% | LR: 3.125e-05
+Epoch [180/350] Loss: 0.6884 | Train Acc: 54.26% | Test Acc: 53.27% | LR: 3.125e-05
+Epoch [190/350] Loss: 0.6884 | Train Acc: 54.42% | Test Acc: 53.22% | LR: 1.5625e-05
+Epoch [200/350] Loss: 0.6878 | Train Acc: 54.95% | Test Acc: 53.38% | LR: 1.5625e-05
+Epoch [210/350] Loss: 0.6885 | Train Acc: 54.57% | Test Acc: 53.74% | LR: 1.5625e-05
+Epoch [220/350] Loss: 0.6886 | Train Acc: 54.39% | Test Acc: 53.74% | LR: 7.8125e-06
+Epoch [230/350] Loss: 0.6877 | Train Acc: 54.84% | Test Acc: 53.63% | LR: 7.8125e-06
+Epoch [240/350] Loss: 0.6880 | Train Acc: 54.53% | Test Acc: 54.05% | LR: 3.90625e-06
+Epoch [250/350] Loss: 0.6885 | Train Acc: 54.50% | Test Acc: 53.80% | LR: 3.90625e-06
+Epoch [260/350] Loss: 0.6879 | Train Acc: 54.91% | Test Acc: 52.72% | LR: 3.90625e-06
+Epoch [270/350] Loss: 0.6877 | Train Acc: 55.00% | Test Acc: 53.60% | LR: 1.953125e-06
+Epoch [280/350] Loss: 0.6883 | Train Acc: 54.63% | Test Acc: 54.13% | LR: 1.953125e-06
+Epoch [290/350] Loss: 0.6887 | Train Acc: 54.90% | Test Acc: 54.10% | LR: 1.953125e-06
+Epoch [300/350] Loss: 0.6885 | Train Acc: 54.37% | Test Acc: 52.86% | LR: 9.765625e-07
+Epoch [310/350] Loss: 0.6880 | Train Acc: 54.43% | Test Acc: 53.71% | LR: 9.765625e-07
+Epoch [320/350] Loss: 0.6884 | Train Acc: 54.59% | Test Acc: 54.46% | LR: 4.8828125e-07
+Epoch [330/350] Loss: 0.6882 | Train Acc: 54.45% | Test Acc: 53.36% | LR: 4.8828125e-07
+Epoch [340/350] Loss: 0.6879 | Train Acc: 54.43% | Test Acc: 54.38% | LR: 4.8828125e-07
+Epoch [350/350] Loss: 0.6886 | Train Acc: 54.36% | Test Acc: 54.16% | LR: 2.44140625e-07
 ==================================================
-BASELINE DEEP LEARNING (PRICE ONLY) RESULT
-Accuracy: 0.5245 (52.45%)
+FINAL RESULT - MULTI-MODAL FUSION
+Accuracy: 0.5460 (54.60%)
 ==================================================
+
+Confusion Matrix:
+[[ 858  928]
+ [ 722 1126]]
+
+Classification Report:
               precision    recall  f1-score   support
 
-           0       0.51      0.80      0.62      1786
-           1       0.57      0.26      0.36      1848
+           0       0.54      0.48      0.51      1786
+           1       0.55      0.61      0.58      1848
 
-    accuracy                           0.52      3634
-   macro avg       0.54      0.53      0.49      3634
-weighted avg       0.54      0.52      0.49      3634
+    accuracy                           0.55      3634
+   macro avg       0.55      0.54      0.54      3634
+weighted avg       0.55      0.55      0.54      3634
 

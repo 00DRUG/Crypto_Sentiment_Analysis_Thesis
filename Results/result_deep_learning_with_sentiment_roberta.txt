@@ -4,56 +4,62 @@ GPU Model: NVIDIA GeForce RTX 4060
 Data Loaded: 18169 samples
 Financial Features: 7 ['Close', 'Volume', 'Returns', 'Vol_Change', 'SMA_24', 'Dist_SMA', 'Volatility']
 Social Features: 2 ['Sentiment', 'Tweet_Volume']
+Class Weights: [1.00089519 0.99910641]
 
-Starting Training (300 Epochs)...
-Epoch [10/300] Loss: 313.8820
-Epoch [20/300] Loss: 313.1391
-Epoch [30/300] Loss: 312.1763
-Epoch [40/300] Loss: 311.2890
-Epoch [50/300] Loss: 310.5370
-Epoch [60/300] Loss: 309.5213
-Epoch [70/300] Loss: 309.2206
-Epoch [80/300] Loss: 308.1827
-Epoch [90/300] Loss: 308.1844
-Epoch [100/300] Loss: 306.5630
-Epoch [110/300] Loss: 306.3720
-Epoch [120/300] Loss: 306.0763
-Epoch [130/300] Loss: 306.1071
-Epoch [140/300] Loss: 305.4093
-Epoch [150/300] Loss: 304.3731
-Epoch [160/300] Loss: 303.6150
-Epoch [170/300] Loss: 303.2640
-Epoch [180/300] Loss: 303.6226
-Epoch [190/300] Loss: 303.4636
-Epoch [200/300] Loss: 302.8590
-Epoch [210/300] Loss: 302.0885
-Epoch [220/300] Loss: 302.4485
-Epoch [230/300] Loss: 302.2816
-Epoch [240/300] Loss: 301.2128
-Epoch [250/300] Loss: 299.3066
-Epoch [260/300] Loss: 300.8242
-Epoch [270/300] Loss: 300.3569
-Epoch [280/300] Loss: 299.9369
-Epoch [290/300] Loss: 298.8450
-Epoch [300/300] Loss: 298.4543
+Starting Training (350 Epochs)...
+Epoch [10/350] Loss: 0.7530 | Train Acc: 51.17% | Test Acc: 49.89% | LR: 0.001
+Epoch [20/350] Loss: 0.6951 | Train Acc: 52.69% | Test Acc: 51.51% | LR: 0.001
+Epoch [30/350] Loss: 0.6926 | Train Acc: 53.04% | Test Acc: 51.35% | LR: 0.001
+Epoch [40/350] Loss: 0.6922 | Train Acc: 53.51% | Test Acc: 53.47% | LR: 0.001
+Epoch [50/350] Loss: 0.6902 | Train Acc: 53.70% | Test Acc: 53.05% | LR: 0.001
+Epoch [60/350] Loss: 0.6909 | Train Acc: 53.66% | Test Acc: 53.58% | LR: 0.001
+Epoch [70/350] Loss: 0.6894 | Train Acc: 54.34% | Test Acc: 53.80% | LR: 0.001
+Epoch [80/350] Loss: 0.6892 | Train Acc: 54.55% | Test Acc: 54.32% | LR: 0.001
+Epoch [90/350] Loss: 0.6886 | Train Acc: 54.16% | Test Acc: 53.77% | LR: 0.001
+Epoch [100/350] Loss: 0.6879 | Train Acc: 54.03% | Test Acc: 53.47% | LR: 0.001
+Epoch [110/350] Loss: 0.6879 | Train Acc: 54.72% | Test Acc: 53.27% | LR: 0.0005
+Epoch [120/350] Loss: 0.6875 | Train Acc: 55.15% | Test Acc: 53.71% | LR: 0.0005
+Epoch [130/350] Loss: 0.6859 | Train Acc: 55.12% | Test Acc: 53.85% | LR: 0.0005
+Epoch [140/350] Loss: 0.6860 | Train Acc: 54.55% | Test Acc: 53.44% | LR: 0.00025
+Epoch [150/350] Loss: 0.6859 | Train Acc: 55.23% | Test Acc: 54.29% | LR: 0.00025
+Epoch [160/350] Loss: 0.6851 | Train Acc: 55.31% | Test Acc: 53.88% | LR: 0.000125
+Epoch [170/350] Loss: 0.6839 | Train Acc: 56.11% | Test Acc: 53.52% | LR: 0.000125
+Epoch [180/350] Loss: 0.6860 | Train Acc: 55.48% | Test Acc: 54.32% | LR: 0.000125
+Epoch [190/350] Loss: 0.6843 | Train Acc: 55.82% | Test Acc: 53.85% | LR: 0.000125
+Epoch [200/350] Loss: 0.6854 | Train Acc: 55.32% | Test Acc: 53.88% | LR: 6.25e-05
+Epoch [210/350] Loss: 0.6843 | Train Acc: 55.62% | Test Acc: 53.52% | LR: 6.25e-05
+Epoch [220/350] Loss: 0.6839 | Train Acc: 55.88% | Test Acc: 53.60% | LR: 3.125e-05
+Epoch [230/350] Loss: 0.6843 | Train Acc: 55.69% | Test Acc: 53.58% | LR: 3.125e-05
+Epoch [240/350] Loss: 0.6842 | Train Acc: 55.76% | Test Acc: 54.02% | LR: 3.125e-05
+Epoch [250/350] Loss: 0.6845 | Train Acc: 55.58% | Test Acc: 53.69% | LR: 1.5625e-05
+Epoch [260/350] Loss: 0.6845 | Train Acc: 55.98% | Test Acc: 53.80% | LR: 1.5625e-05
+Epoch [270/350] Loss: 0.6848 | Train Acc: 55.73% | Test Acc: 54.13% | LR: 7.8125e-06
+Epoch [280/350] Loss: 0.6844 | Train Acc: 55.87% | Test Acc: 53.88% | LR: 7.8125e-06
+Epoch [290/350] Loss: 0.6840 | Train Acc: 56.04% | Test Acc: 53.55% | LR: 7.8125e-06
+Epoch [300/350] Loss: 0.6837 | Train Acc: 55.78% | Test Acc: 54.13% | LR: 3.90625e-06
+Epoch [310/350] Loss: 0.6854 | Train Acc: 55.35% | Test Acc: 54.40% | LR: 3.90625e-06
+Epoch [320/350] Loss: 0.6838 | Train Acc: 56.16% | Test Acc: 53.27% | LR: 3.90625e-06
+Epoch [330/350] Loss: 0.6838 | Train Acc: 55.70% | Test Acc: 53.88% | LR: 1.953125e-06
+Epoch [340/350] Loss: 0.6846 | Train Acc: 55.73% | Test Acc: 54.27% | LR: 1.953125e-06
+Epoch [350/350] Loss: 0.6857 | Train Acc: 55.53% | Test Acc: 53.94% | LR: 9.765625e-07
 
 Evaluating...
 ==================================================
 FINAL RESULT - MULTI-MODAL FUSION
-Accuracy: 0.5173 (51.73%)
+Accuracy: 0.5468 (54.68%)
 ==================================================
 
 Confusion Matrix:
-[[1521  265]
- [1489  359]]
+[[1239  547]
+ [1100  748]]
 
 Classification Report:
               precision    recall  f1-score   support
 
-           0       0.51      0.85      0.63      1786
-           1       0.58      0.19      0.29      1848
+           0       0.53      0.69      0.60      1786
+           1       0.58      0.40      0.48      1848
 
-    accuracy                           0.52      3634
-   macro avg       0.54      0.52      0.46      3634
-weighted avg       0.54      0.52      0.46      3634
+    accuracy                           0.55      3634
+   macro avg       0.55      0.55      0.54      3634
+weighted avg       0.55      0.55      0.54      3634
 
