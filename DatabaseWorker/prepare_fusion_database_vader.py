@@ -2,7 +2,7 @@ import pandas as pd
 import sys
 
 # CONFIG
-BASELINE_FILE = "../DataBases/DIPLOMA_BASELINE_DATA.csv"
+BASELINE_FILE = "../Databases/DIPLOMA_BASELINE_DATA.csv"
 SENTIMENT_FILE = "../Databases/HOURLY_SENTIMENT_SCORES_VADER.csv"
 OUTPUT_FILE = "../Databases/DIPLOMA_FUSION_DATA_VADER.csv"
 

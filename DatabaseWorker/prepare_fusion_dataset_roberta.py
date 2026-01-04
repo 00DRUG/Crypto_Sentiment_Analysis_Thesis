@@ -3,9 +3,9 @@ import sys
 import os
 
 # CONFIG
-ROBERTA_FILE = "../DataBases/ROBERTA_SCORES.csv"
+ROBERTA_FILE = "../Databases/ROBERTA_SCORES.csv"
 
-PRICE_FILE = "../DataBases/DIPLOMA_BASELINE_DATA.csv"
+PRICE_FILE = "../Databases/DIPLOMA_BASELINE_DATA.csv"
 
 # 3. The Output
 OUTPUT_FILE = "../Databases/DIPLOMA_FUSION_DATA_ROBERTA.csv"

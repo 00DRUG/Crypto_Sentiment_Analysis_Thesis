@@ -16,9 +16,9 @@ from bs4 import BeautifulSoup
 
 nlp = spacy.load("en_core_web_sm")
 
-links_file = '../Json/links.json'
-user_agents_file = '../Json/user_agents.json'
-keywords_file = '../Json/keywords.json'
+links_file = '../Json_legacy/links.json'
+user_agents_file = '../Json_legacy/user_agents.json'
+keywords_file = '../Json_legacy/keywords.json'
 DBWorker.create_predictions()
 
 

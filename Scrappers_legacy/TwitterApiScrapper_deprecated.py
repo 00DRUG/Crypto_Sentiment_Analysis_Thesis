@@ -68,7 +68,7 @@ def insert_tweet(tweet):
     conn.commit()
 
 
-with open("../Json/twitter_keys.json") as infile:
+with open("../Json_legacy/twitter_keys.json") as infile:
     json_obj = json.load(infile)
     token = json_obj["bearer_token"]
     client = tweepy.Client(bearer_token=token)

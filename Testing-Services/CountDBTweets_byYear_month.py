@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 # --- CONFIGURATION ---
-file_name = "../DataBases/Bitcoin_tweets.csv"
+file_name = "../Databases/Bitcoin_tweets.csv"
 date_column = 'date'
 
 try:
